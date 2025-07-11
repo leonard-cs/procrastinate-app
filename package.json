@@ -1,0 +1,47 @@
+{
+  "name": "drp10",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "firebase": "^11.8.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1"
+  },
+  "scripts": {
+    "start": "serve -s dist -l ${PORT:-3000}",
+    "dev": "webpack-dev-server --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build-dev": "webpack --mode development",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/estree": "^1.0.8",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "@types/trusted-types": "^2.0.7",
+    "autoprefixer": "^10.4.21",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.11",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
+    "workbox-webpack-plugin": "^7.3.0"
+  }
+}
