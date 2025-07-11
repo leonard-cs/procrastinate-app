@@ -2,8 +2,19 @@ import path, { dirname } from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import WorkboxPlugin from "workbox-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
+import webpack from "webpack";
+import dotenv from "dotenv";
 
 import { fileURLToPath } from "url";
+
+// Load environment variables
+const env = dotenv.config().parsed || {};
+
+// Convert to DefinePlugin format
+const envKeys = Object.keys(env).reduce((acc, key) => {
+  acc[`process.env.${key}`] = JSON.stringify(env[key]);
+  return acc;
+}, {});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,6 +30,7 @@ const plugins = [
       { from: './manifest.webmanifest', to: 'manifest.webmanifest' },
     ],
   }),
+  new webpack.DefinePlugin(envKeys),
 ];
 
 // Only add service worker in production
